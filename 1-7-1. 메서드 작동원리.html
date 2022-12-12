@@ -1,0 +1,70 @@
+<script>
+    // forEach
+    function forEach(predicate, thisArg){
+        for(let i=0; i<a.length; i++){
+            predicate(a[i], i);
+        }
+    }
+
+    a.forEach(function(v, i){
+        console.log(v, i, this);
+    }, [1,2])
+
+    
+
+    // map
+    function map(predicate, thisArg){
+        let list=[];
+        for(let i=0; i<a.length; i++){
+            list.push(predicate(a[i], i));
+        }
+        return list;
+    }
+    // map이 생성하는 배열은 무조건 원본 배열과 길이가 같음
+    a=[10,11,12,13,14,15];
+    let answer=a.map(function(v, i){
+        if(v%2===0){
+            return v;
+        }
+    }, [1,2]);
+    console.log(answer);
+    // [10, undefined, 12, undefined, 14, undefined]
+    // return 값을 안 받으면 undefined를 push
+
+
+
+    // filter
+    function filter(predicate, thisArg){
+        let list=[];
+        for(let i=0; i<a.length; i++){
+            if(predicate(a[i], i)){
+                list.push(a[i]);
+            }
+        }
+        return list;
+    }
+    a=[10,11,12,13,14,15];
+    answer=a.filter(function(v, i){
+        return v%2===0;
+    },[1,2]);
+    console.log(answer);
+    // [10, 12, 14]
+
+
+
+    // reduce
+    function reduce(predicate, cur){
+        let result=cur;
+        for(let i=0; i<a.length; i++){
+            result=predicate(result, a[i]);
+        }
+        return result;
+    }
+    a=[10,11,12,13,14,15];
+    answer=a.reduce(function(acc, cur){
+        return acc+cur;
+    }, 0);
+    console.log(answer);
+    // 75
+
+</script>
