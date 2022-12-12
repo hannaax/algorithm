@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=arr; // 얕은 복사
+                let sum = arr.reduce((acc,cur)=>acc+cur, 0);
+                
+                for(let i=0; i<8; i++){
+                    for(let j=i+1; j<9; j++){
+                        if(sum - (arr[i]+arr[j]) === 100) {
+                            arr.splice(j,1); // 뒤에껄 지우면 index에 영향 안감
+                            arr.splice(i,1);
+                            
+                            break;
+                        }
+                    }
+                }
+
+                return answer;
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
