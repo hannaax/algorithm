@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer=0;
+                let n=arr.length;
+
+                for(let i=0; i<n; i++){
+                    for(let j=0; j<n; j++){
+                        if((i>0 && arr[i][j]>arr[i-1][j])&&
+                           (i<n && arr[i][j]>arr[i+1][j])&&
+                           (j>0 && arr[i][j]>arr[i][j-1])&&
+                           (j<n && arr[i][j]>arr[i][j+1])){
+                            
+                            answer++;
+                           }
+                    }
+                }
+                  
+                return answer;
+            }
+
+            let arr=[[5, 3, 7, 2, 3], 
+                     [3, 7, 1, 6, 1],
+                     [7, 2, 5, 3, 4],
+                     [4, 3, 6, 4, 1],
+                     [8, 7, 3, 5, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+
+<!-- 자신의 상하좌우 el보다 큰 el이 몇개인지 구하기
+상하좌우 el...
+
+해당 el이 [2][2]이라고 한다면,
+상 [1][2] [i-1][i]
+하 [3][2] [i+1][i]
+좌 [2][1] [i][i-1]
+우 [2][3] [i][i+1]
+
+중첩반복문돌려서
+상하좌우보다 큰 el이면 answer++;
+
+가장자리는 검사할 필요 x
+0,0에서 시작한다고 하면..
+1행의 상,
+1열의 좌
+n-1행의 하
+n-1열의 우
+이 네가지가 가장자리에 해당 -->
