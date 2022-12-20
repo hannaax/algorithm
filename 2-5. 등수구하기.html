@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = [];
+                let rank; 
+
+                for(let i=0; i<arr.length; i++){
+                    rank = 1;
+                    for(let j=0; j<arr.length; j++){
+                        if(arr[i]<arr[j]){
+                            rank ++;
+                        }
+                    }
+                    answer.push(rank);
+                }
+             
+                return answer;
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+
+<!-- 이중 for문 돌려서
+i에 디폴트로 1을 할당하고,
+j를 돌리면서 i랑 비교
+j가 더 크면 i +1
+i값 arr에 push하고, arr 리턴 -->
