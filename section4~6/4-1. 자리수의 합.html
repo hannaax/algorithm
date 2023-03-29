@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+
+        for (let el of arr) {
+          let sum = 0,
+            tmp = el;
+          while (tmp > 0) {
+            sum += tmp % 10;
+            tmp = Math.floor(tmp / 10);
+          }
+          if (sum > max) {
+            max = sum;
+            answer = el;
+          } else if (sum === max) {
+            if (el > answer) {
+              answer = el;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
+
+<!-- arr을 반복문 돌리고, arr[i]의 일의 자리는 10으로 나눴을때의 나머지[a] 몫이
+10보다 같거나 크면 : arr[i]의 십의 자리는 10으로 나누고, 또 10으로 나눈 후의
+나머지[] 몫이 10보다 작으면 : arr[i]의 백의 자리는 몫 -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
