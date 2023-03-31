@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+
+        // 닫는 괄호가 들어오면 여는 괄호 + 여는 괄호 위 문자 pop
+        // pop을 여러번 실행하려면 반복문?
+
+        let stack = [];
+
+        for (let x of s) {
+          if (x === ")") {
+            while (stack.pop() !== "("); // 이 부분 이해 안감
+          } else stack.push(x);
+        }
+        answer = stack.join("");
+        return answer;
+      }
+
+      let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
