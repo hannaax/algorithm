@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        let answer = "YES";
+        let queue = need.split("");
+        for (let x of plan) {
+          if (queue.includes(x)) {
+            if (x !== queue.shift()) return "NO";
+            // need가 x를 갖고 있지만, 순서가 일치하지 않음
+          }
+        }
+        if (queue.length > 0) return "NO";
+        // plan을 다 돌았는데, need에 있지만 plan에 없음
+        return answer;
+      }
+
+      let a = "CBA";
+      let b = "CBDAGE";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
