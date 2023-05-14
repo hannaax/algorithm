@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = 232;
+
+        for (let x of [a, b, c]) {
+          if (x < answer) answer = x;
+        }
+
+        return answer;
+      }
+
+      // 배열에 안담고 비교하려면 a,b와 b,c를 따로 비교한다
+
+      console.log(solution(2, 5, 1));
+    </script>
+  </body>
+</html>

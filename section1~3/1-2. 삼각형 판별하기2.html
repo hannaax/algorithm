@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES",
+          max;
+        let sum;
+
+        if (a > b) max = a;
+        else max = b;
+        if (c > max) max = c;
+
+        if (max === c) sum = a + b;
+        else if (max === b) sum = a + c;
+        else sum = b + c;
+
+        if (max <= sum) return "NO!";
+        return answer;
+      }
+
+      // 더 짧게 코드를 작성하려면 total 변수를 만든다
+
+      console.log(solution(13, 33, 17));
+    </script>
+  </body>
+</html>
