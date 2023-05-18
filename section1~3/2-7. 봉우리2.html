@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        let n = arr.length;
+
+        // 봉우리 구하기
+        // 자신의 상하좌우 숫자보다 큰 숫자는 봉우리
+        // [1][1]의 상하좌우 : 상[0][1] / 하[2][1] /좌[1][0] / 우[1][2]
+        // [i][j] 상:[i-1][j] 하:[i+1][j] 좌:[i][j-1] 우:[i][j+1]
+
+        // 가장자리 제외
+        // 상: [0,0] [0,1] ~ [0,6] / 하: [6,0] [6,1] ~ [6,6]
+        // 좌: [0,0] [1,0] ~ [6,0] / 우: [0,6] [1,6] ~ [6,6]
+        // for (let i = 1; i < arr.length + 1; i++) {
+        //   for (let j = 1; j < arr.length + 1; j++) {
+        //     // console.log(i, j);
+        //     // (1,1)부터 (5,5)까지
+        //     if (
+        //       arr[i][j] > arr[i - 1][j] &&
+        //       arr[i][j] > arr[i + 2][j + 1] &&
+        //       arr[i][j] > arr[i][j - 1] &&
+        //       arr[i][j] > arr[i][j + 1]
+        //     )
+        //       answer++;
+        //   }
+        // }
+
+        let dx = [-1, 0, 1, 0];
+        let dy = [0, 1, 0, -1];
+
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            let flag = 1;
+            for (let k = 0; k < 4; k++) {
+              let nx = i + dx[k];
+              let ny = j + dy[k];
+              if (
+                nx >= 0 &&
+                nx < n &&
+                ny >= 0 &&
+                ny < n &&
+                arr[nx][ny] >= arr[i][j]
+              ) {
+                flag = 0;
+                break;
+              }
+            }
+            if (flag) answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
