@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        debugger
+        let answer = "NO"
+        let total = arr.reduce((a, b) => a + b, 0)
+        let n = arr.length
+        // let flag = 0
+        function DFS(L, sum) {
+          if (answer === "YES") return
+          // if (flag) return
+          // answer이 'YES'로 바뀌고, 스택에 남아있던 애들이 호출되고 가지를 뽑는데,
+          // 바로 다 return되고 종료됨
+          if (L === n) {
+            if (sum === total - sum) {
+              answer = "YES"
+              // flag = 1
+              // 잘 이해가 안가는게 L===n일때말고도 부분집합 구할때마다
+              // sum === total - sum 여부를 확인해야하지않나?? ==> No. 콜스택에 쌓임
+              // sum === total - sum 이 아니면 그냥 return 되는건가??
+            }
+          } else {
+            DFS(L + 1, sum + arr[L])
+            DFS(L + 1, sum)
+          }
+        }
+
+        DFS(0, 0)
+        return answer
+      }
+
+      let arr = [1, 3, 5, 6, 7, 10]
+      console.log(solution(arr))
+    </script>
+  </body>
+</html>
