@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(c, arr) {
+        let answer=Number.MIN_SAFE_INTEGER;
+        if(sum>c) {
+          return이면 멈추는거아닌가? contiue..?
+          return이란건 그담꺼 다 뱉어내니까
+          그 다음값은 무조건 c보다 다 크다는건가..?
+          가지뻗기를 못한다고 함!
+          그림으로 이해해야할듯...?
+        }
+        if(L===n){
+          if(answer > sum){
+            answer = sum;
+          }
+        }
+        else{
+          DFS(L+1, sum+arr[L])
+          DFS(L+1, sum)
+        }
+        return answer;
+      }
+
+      let arr = [81, 58, 42, 33, 61];
+      console.log(solution(259, arr));
+    </script>
+  </body>
+</html>
+
+결론은 부분집합!!!!
