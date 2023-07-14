@@ -1,9 +1,7 @@
 function solution(absolutes, signs) {
-    var answer = 123456789;
-    let values = []
+    var answer = 0;
     for(let i=0; i<signs.length; i++){
-        signs[i]? values.push(+absolutes[i]) : values.push(-absolutes[i])
+        signs[i]? answer += +absolutes[i] : answer += -absolutes[i]
     }
-    answer = values.reduce((acc,cur)=>acc+cur)
     return answer;
 }
