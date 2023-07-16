@@ -3,8 +3,7 @@ function solution(food) {
     for(let i=1; i<food.length; i++){
         answer += String(i).repeat(Math.floor(food[i]/2))
     }
-    answer += "0"
-    answer = answer + answer.split('').reverse().join('').slice(1) 
+    answer = answer + 0 + [...answer].reverse().join('') 
     return answer;
 }
 
