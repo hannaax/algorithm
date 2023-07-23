@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, e) {
+        let answer = 0;
+        // let queue = [];
+        // queue.push(1);
+        // while (queue.length) {
+        //   queue.shift();
+        //   for (let nv of [s - 1, s + 1, s + 5]) {
+        //     if (nv > e) continue;
+        //     queue.push(nv);
+        //     // for문 한번돌때마다 answer ++;
+        //   }
+        //   answer++;
+        // }
+        let ch = Array.from({ length: 10001 }, () => 0);
+        let dis = Array.from({ length: 10001 }, () => 0);
+        let queue = [];
+        ch[s] = 1;
+        queue.push(s);
+        dis[s] = 0;
+        while (queue.length) {
+          let x = queue.shift();
+          for (let nx of [x - 1, x + 1, x + 5]) {
+            if (nx === e) return dis[x] + 1;
+            if (nx > 0 && nx <= 10000 && ch[nx] === 0) {
+              // if 조건이 잘 이해안감.. 그냥 nx !== e를 하면..?
+              ch[nx] = 1;
+              queue.push(nx);
+              dis[nx] = dis[x] + 1;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(8, 3));
+    </script>
+  </body>
+</html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, e) {
+        let answer = 0;
+
+        return answer;
+      }
+
+      console.log(solution(5, 14));
+    </script>
+  </body>
+</html>
