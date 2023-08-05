@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0
+        let sum = 0
+
+        // 총합에서 상품 하나의 50%할인금액을 뺀 금액의 최대값 구하기
+        // 단, 예산 내
+
+        // product.forEach((el) => (sum += el[0] + el[1]))
+
+        product = product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]))
+        console.log(product)
+
+        for (let i = 0; i < product.length; i++) {
+          product2 = product.slice()
+          product2[i][0] = product[i][0] / 2
+          product3 = product2.map((el) => el[0] + el[1])
+
+          // product splice 하기!!!
+          // console.log(product3)
+        }
+        return answer
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ]
+      console.log(solution(28, arr))
+    </script>
+  </body>
+</html>
