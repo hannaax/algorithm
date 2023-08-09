@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = 0
+        // ;(lt = 0), (sum = 0), (rt = 0)
+
+        // // for (let i = lt; i <= rt; i++) {
+        // //   if (sum !== m) {
+        // //     sum += arr[i]
+        // //     console.log(sum)
+        // //   } else {
+        // //     answer++
+        // //   }
+        // //   rt++
+        // // }
+
+        // let i = 0
+        // while (lt < arr.length - 1) {
+        //   if (sum === 6) {
+        //     answer++
+        //     lt++
+        //     sum = 0
+        //   }
+        //   if (sum > 6) {
+        //     lt++
+        //     sum = 0
+        //   }
+        //   sum += arr[i]
+        //   i++
+        //   console.log(sum)
+        // }
+        // // for (let i = lt; i < arr.length; i++) {
+        // //   sum += arr[i]
+        // //   if (sum === 6) {
+        // //     answer++
+        // //   }
+        // // }
+
+        // for (let i = 0; i < arr.length; i++) {
+        //   for (let j = 0; j < arr.length; j++) {
+        //     arr2 = arr.slice(i, j)
+        //     sum = arr2.reduce((acc, cur) => acc + cur, 0)
+        //     // console.log(sum)
+        //     if (sum === 6) {
+        //       answer++
+        //       console.log(sum)
+        //     }
+        //   }
+        // }
+
+        // for (let i = 0; i < arr.length; i++) {
+        //   //   arr2 = arr.slice(i, lt)
+        //   //   console.log(i, lt)
+        //   //   console.log(arr2)
+        //   //   sum = arr2.reduce((acc, cur) => acc + cur, 0)
+        //   //   console.log(sum)
+        //   if (sum < 6) {
+        //     lt++
+        //     arr2 = arr.slice(i, lt)
+        //     // console.log(lt)
+        //     console.log(arr2)
+        //   }
+        //   if (sum > 6) break
+        //   if (sum === 6) {
+        //     arr2 = arr.slice(i, lt)
+        //     // console.log(lt)
+        //     console.log(arr2)
+        //     answer++
+        //     lt = 0
+        //     // console.log(sum)
+        //   }
+        // }
+
+        // lt, rt 활용하기
+        // let lt = 0
+        // for (let rt = 0; rt < arr.length; rt++) {
+        //   // 왜 rt가 0부터 다시 시작안하지??
+        //   arr2 = arr.slice(lt, rt)
+        //   console.log(arr2)
+        //   sum = arr2.reduce((acc, cur) => acc + cur, 0)
+        //   // // console.log(sum)
+        //   if (sum === 6) {
+        //     answer++
+        //     console.log(sum)
+        //     sum = 0
+        //     lt++
+        //   }
+        //   if (sum > 6) {
+        //     sum = 0
+        //     lt++
+        //   }
+        // }
+
+        let lt = 0
+        let sum = 0
+
+        for (let rt = 0; rt < arr.length; rt++) {
+          sum += arr[rt]
+          if (sum === m) {
+            answer++
+          }
+          while (sum >= m) {
+            sum -= arr[lt++]
+            if (sum === m) answer++
+          }
+        }
+
+        return answer
+      }
+
+      let a = [1, 2, 1, 3, 1, 1, 1, 2]
+      console.log(solution(6, a))
+    </script>
+  </body>
+</html>
