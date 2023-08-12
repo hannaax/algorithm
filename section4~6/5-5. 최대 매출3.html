@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(k, arr) {
+        let answer,
+          sum = 0
+        max = 0
+
+        for (let i = 0; i < k; i++) {
+          sum += arr[i]
+        }
+
+        for (let i = k; i < arr.length; i++) {
+          sum += arr[i]
+          sum -= arr[i - k]
+          console.log(sum)
+          if (sum > max) {
+            max = sum
+          }
+        }
+        answer = max
+
+        return answer
+      }
+
+      let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]
+      console.log(solution(3, a))
+    </script>
+  </body>
+</html>
