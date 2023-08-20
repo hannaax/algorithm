@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        let answer = "YES"
+        need = [...need]
+
+        for (let x of plan) {
+          if (need.includes(x)) {
+            if (x !== need.shift()) {
+              console.log(x)
+              console.log(need.shift())
+              return "NO"
+            } else {
+              console.log(need)
+              need.shift()
+            }
+          }
+        }
+
+        return answer
+      }
+
+      let a = "CBA"
+      let b = "CBDAGE"
+      console.log(solution(a, b))
+    </script>
+  </body>
+</html>
