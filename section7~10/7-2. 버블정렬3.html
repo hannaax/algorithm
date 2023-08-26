@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr
+
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length - i; j++) {
+            // arr[i]랑 arr[i+1] 비교해서
+            // arr[i+1]이 더 작으면 자리 바꾸기
+            // 반복문 새로 돌릴때마다 끝을 한자리씩 줄이기
+            // j++
+            if (arr[j] > arr[j + 1]) {
+              ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+          }
+        }
+
+        return answer
+      }
+
+      let arr = [13, 5, 11, 7, 23, 15]
+      console.log(solution(arr))
+    </script>
+  </body>
+</html>
