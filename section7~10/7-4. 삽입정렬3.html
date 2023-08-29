@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr
+        let tmp = 0
+
+        for (let i = 1; i < arr.length; i++) {
+          tmp = arr[i]
+          let tmp2 = 0
+          for (let j = i - 1; j >= 0; j--) {
+            // i랑 j를 비교해서 arr[i]가 arr[j]보다 작으면
+            // arr[i]와 arr[j] 바꾸기
+            if (tmp < arr[j]) {
+              // i값을 tmp에 넣고,
+              // j+1자리에 j값 할당 반복하다가
+              // 최종적으로, 반복 다 돈 후에
+              // j-1자리에 tmp값 넣기
+              arr[j + 1] = arr[j]
+              tmp2 = j
+              console.log(arr)
+            }
+          }
+          arr[tmp2] = tmp
+        }
+
+        return answer
+      }
+
+      let arr = [11, 7, 5, 6, 10, 9]
+      console.log(solution(arr))
+    </script>
+  </body>
+</html>
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = []
+
+        return answer
+      }
+
+      let arr = [11, 7, 5, 6, 10, 9]
+      console.log(solution(arr))
+    </script>
+  </body>
+</html> -->
