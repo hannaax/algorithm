@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(size, arr) {
+        let answer = new Array(size).fill(0)
+        let tmp = 0
+
+        arr.forEach((work, i) => {
+          // 캐시 미스 (작업 캐시에 X)
+          if (!answer.includes(work)) {
+            answer.unshift(work)
+            answer.pop()
+          }
+          // 캐시 힛 (작업 캐시에 O)
+          else {
+            tmp = work
+            for (let j = i - 1; j >= 0; j--) {
+              answer[j + 1] = answer[j]
+            }
+            if (answer.length >= size) answer.pop()
+            answer[0] = tmp
+            console.log(answer)
+          }
+        })
+
+        return answer
+      }
+
+      let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7]
+      console.log(solution(5, arr))
+    </script>
+  </body>
+</html>
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(size, arr) {
+        let answer = []
+
+        return answer
+      }
+
+      let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7]
+      console.log(solution(5, arr))
+    </script>
+  </body>
+</html> -->
