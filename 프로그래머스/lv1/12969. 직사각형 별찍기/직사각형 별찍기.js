@@ -5,9 +5,9 @@ process.stdin.on('data', data => {
     
     answer=""
     line= ""
-    for(let i=0; i<a; i++){
-        line += "*"
-    }
+    
+    line = "*".repeat(a)
+    
        for(let i=0; i<b; i++){
         answer += `${line}\n`
     }
