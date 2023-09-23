@@ -1,63 +1,44 @@
-// function solution(s) {
-//     var answer = 0;
-//     let queue = [...s]
-//     let stack = []
-    
-//     queue.forEach((x,i) => {
-//          if(x==='(' || x==='{' || x==='[') stack.push(x)
-//         // console.log(stack)
-//         if(x===')' && stack[stack.length-1]==='(') stack.pop()
-//         if(x==='}' && stack[stack.length-1]==='{') stack.pop()
-//         if(x===']' && stack[stack.length-1]==='[') stack.pop()
-//     })
-//     if(stack.length !== 0) stack=[];
-//     else answer++;   
-    
-//     queue.forEach((x,i) => {
-//         const firstEl = queue.shift()
-//         queue.push(firstEl)
-//         // console.log('strings',queue)
-//         if(queue[0]===')' || queue[0]==='}' || queue[0]===']') return;
-//         else if(queue[queue.length-1]==='(' || queue[queue.length-1]==='{' || queue[queue.length-1]==='[') return;
-        
-//         if(x==='(' || x==='{' || x==='[') stack.push(x)
-//         // console.log(stack)
-//         if(x===')' && stack[stack.length-1]==='(') stack.pop()
-//         if(x==='}' && stack[stack.length-1]==='{') stack.pop()
-//         if(x===']' && stack[stack.length-1]==='[') stack.pop()
-        
-//         // console.log(stack)
-//         if(stack.length !== 0) stack=[];
-//         else answer++;
-//     })
-    
-//     return answer;
-// }
-
-
-const pair = { '}': '{', ']': '[', ')': '(' }
-
 function solution(s) {
-  const arr = s.split('')
-  let result = 0
-  const isValid = arr => {
-    const stack = []
-    for (let i = 0; i < arr.length; i++) {
-      const c = arr[i]
-      if (pair[c] === undefined) stack.push(c)
-      else {
-        if (stack[stack.length - 1] !== pair[c]) return false
-        stack.pop()
-      }
-    }
-    if (stack.length) return false
-    return true
-  }
+    var answer = 0;
+    let queue = [...s]
+    let stack = []
+    
+//     for(let i=0; i<queue.length; i++){
+//         if(queue[0]===')' || queue[0]==='}' || queue[0]===']') continue;
+//         else if(queue[queue.length-1]==='(' || queue[queue.length-1]==='{' || queue[queue.length-1]==='[') continue;
+//         else {
+//             for(let j=0; j<queue.length; j++){
+//                 if(queue[j]==='(' || queue[j]==='{' || queue[j]==='[') stack.push(queue[j])
 
-  for (let i = 0; i < s.length; i++) {
-    if (isValid(arr)) result++
-    arr.push(arr.shift())
-  }
+//                 if(queue[j]===')' && stack[stack.length-1]==='(') stack.pop()
+//                 if(queue[j]==='}' && stack[stack.length-1]==='{') stack.pop()
+//                 if(queue[j]===']' && stack[stack.length-1]==='[') stack.pop()
+//                 }
+//                 if(stack.length !== 0) stack=[];
+//                 else answer++;
+//             }
+//     }
+    
+    for(let i=0; i<queue.length; i++){
+        const firstEl = queue.shift()
+        queue.push(firstEl)
+        // console.log('strings',queue)
+        if(queue[0]===')' || queue[0]==='}' || queue[0]===']') continue;
+        else if(queue[queue.length-1]==='(' || queue[queue.length-1]==='{' || queue[queue.length-1]==='[') continue;
+        else {
+            for(let j=0; j<queue.length; j++){
+                // console.log(stack)
+                if(queue[j]==='(' || queue[j]==='{' || queue[j]==='[') stack.push(queue[j])
 
-  return result
+                if(queue[j]===')' && stack[stack.length-1]==='(') stack.pop()
+                if(queue[j]==='}' && stack[stack.length-1]==='{') stack.pop()
+                if(queue[j]===']' && stack[stack.length-1]==='[') stack.pop()
+            }
+            
+            if(stack.length !== 0) stack=[];
+            else answer++;
+        }
+        }
+    
+    return answer;
 }
