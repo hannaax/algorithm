@@ -32,4 +32,4 @@ function solution(cacheSize, cities) {
 }
 
 
-// 소요 시간: 문제이해-15분, 문제풀이-40분
+// 소요 시간: 문제이해-15분, 문제풀이-45분
